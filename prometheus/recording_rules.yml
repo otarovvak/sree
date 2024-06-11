@@ -1,0 +1,10 @@
+groups:
+  - name: memory_usage
+    rules:
+      - record: instance:memory_usage:ratio
+        expr: |
+          (node_memory_MemTotal_bytes 
+           - node_memory_MemFree_bytes
+           - node_memory_Buffers_bytes 
+           - node_memory_Cached_bytes) 
+          / node_memory_MemTotal_bytes
